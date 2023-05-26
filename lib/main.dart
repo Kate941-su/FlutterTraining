@@ -61,10 +61,7 @@ class _MyHomePageState extends State<MyHomePage> {
         body: ListView.separated(
           itemCount: 100,
           itemBuilder: (context, index) {
-            return Container(
-              padding: const EdgeInsets.all(5),
-              child: SearchResultListTile(goodNum: _goodNum),
-            );
+            return SearchResultListTile(goodNum: _goodNum);
           },
           separatorBuilder: (context, index) {
             return const Divider(

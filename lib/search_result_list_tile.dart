@@ -11,27 +11,30 @@ class SearchResultListTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      title: const Text(
-        'dummy',
-        style: TextStyle(
-          fontSize: 20,
+    return Container(
+      padding: const EdgeInsets.all(5),
+      child: ListTile(
+        title: const Text(
+          'dummy',
+          style: TextStyle(
+            fontSize: 20,
+          ),
         ),
-      ),
-      subtitle: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const Text('簡単な説明簡単な説明簡単な説明簡単な説明'),
-          Row(
-            children: [
-              const Icon(
-                Icons.star,
-                color: Colors.grey,
-              ),
-              Text(goodNum.toString()),
-            ],
-          )
-        ],
+        subtitle: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text('簡単な説明簡単な説明簡単な説明簡単な説明'),
+            Row(
+              children: [
+                const Icon(
+                  Icons.star,
+                  color: Colors.grey,
+                ),
+                Text(goodNum.toString()),
+              ],
+            )
+          ],
+        ),
       ),
     );
   }
