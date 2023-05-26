@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'search_result_list_tile.dart';
+import 'appbar_text_field.dart';
 
 void main() {
   runApp(const MyApp());
@@ -53,20 +54,8 @@ class _MyHomePageState extends State<MyHomePage> {
             onPressed: () {},
             icon: const Icon(Icons.arrow_back),
           ),
-          title: Container(
-            color: Colors.white,
-            child: TextField(
-              controller: _controller,
-              decoration: InputDecoration(
-                  // TextFieldの見た目の設定
-                  suffixIcon: IconButton(
-                onPressed: () {
-                  _controller.clear();
-                },
-                icon: const Icon(Icons.clear),
-              )),
-              onChanged: (value) {},
-            ),
+          title: AppbarTextField(
+            controller: _controller,
           ),
         ),
         body: ListView.separated(
