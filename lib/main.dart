@@ -73,17 +73,22 @@ class _MyHomePageState extends State<MyHomePage> {
                             fontSize: 20,
                           ),
                         ),
-                        subtitle: Text('簡単な説明簡単な説明簡単な説明簡単な説明'),
+                        subtitle: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text('簡単な説明簡単な説明簡単な説明簡単な説明'),
+                            Row(
+                              children: [
+                                Icon(
+                                  Icons.star,
+                                  color: Colors.grey,
+                                ),
+                                Text(_goodNum.toString()),
+                              ],
+                            )
+                          ],
                         ),
-                  Row(
-                    children: [
-                      Icon(
-                        Icons.star,
-                        color: Colors.grey,
-                      ),
-                      Text(_goodNum.toString()),
-                    ],
-                  )
+                  ),
                 ],
               ),
             );
