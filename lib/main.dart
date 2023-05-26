@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'SearchResultListTile.dart';
+import 'search_result_list_tile.dart';
 
 void main() {
   runApp(const MyApp());
@@ -31,7 +31,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final _goodNum = 0;
-  var _controller;
+  late TextEditingController _controller;
 
   @override
   void initState() {
