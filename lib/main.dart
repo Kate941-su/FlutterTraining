@@ -1,86 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_training/provider.dart';
 import 'search_result_list_tile.dart';
 import 'appbar_text_field.dart';
-import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'repository_api_client.dart';
-
-
+import 'hole_view.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const ProviderScope(child: MyApp()));
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
+class MyApp extends ConsumerWidget {
+  const MyApp({Key? key}):super(key: key);
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  final _goodNum = 0;
-  late TextEditingController _controller;
-
-  @override
-  void initState() {
-    _controller = TextEditingController();
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          leading: IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.arrow_back),
-          ),
-          title: AppbarTextField(
-            controller: _controller,
-          ),
-        ),
-        body: ListView.separated(
-          itemCount: 100,
-          itemBuilder: (context, index) {
-            return SearchResultListTile(goodNum: _goodNum);
-          },
-          separatorBuilder: (context, index) {
-            return const Divider(
-              height: 0.5,
-            );
-          },
-        ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          RepositoryApiClient api = RepositoryApiClient();
-          dynamic list = api.fetchList();
-        },
-        child: Icon(Icons.search),
-      ),
+      title: 'Github Repository List',
+      theme: ThemeData.dark(),
+      home: const HoleView(),
     );
   }
 }

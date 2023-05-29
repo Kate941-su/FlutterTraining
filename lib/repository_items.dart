@@ -10,7 +10,7 @@ class RepositoryItems with _$RepositoryItems {
   factory RepositoryItems({
     String? name,
     String? description,
-    int? start,
+    int? stargazers_count,
   }) = _RepositoryItems;
 
   factory RepositoryItems.fromJson(Map<String, dynamic> json) =>

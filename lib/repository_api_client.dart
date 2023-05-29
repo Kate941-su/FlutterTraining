@@ -2,12 +2,10 @@ import 'repository_items.dart';
 import 'package:dio/dio.dart';
 
 class RepositoryApiClient {
-  Future<List<RepositoryItems>?> fetchList() async {
+  Future<List<RepositoryItems>?> fetchList(String query) async {
     print('hello');
     final dio = Dio();
-    const url =
-        'https://api.github.com/search/repositories?q=flutter&per_page=100';
-    final response = await dio.get(url);
+    final response = await dio.get(query);
     if (response.statusCode == 200) {
       try {
         final data = response.data['items'] as List<dynamic>;

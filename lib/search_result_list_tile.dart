@@ -2,11 +2,15 @@ import 'package:flutter/material.dart';
 
 class SearchResultListTile extends StatelessWidget {
   // member variables
-  final int goodNum;
+  final int stargazersCount;
+  final String name;
+  final String description;
 
   const SearchResultListTile({
     Key? key,
-    required this.goodNum,
+    required this.stargazersCount,
+    required this.name,
+    required this.description,
   }) : super(key: key);
 
   @override
@@ -14,23 +18,23 @@ class SearchResultListTile extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(5),
       child: ListTile(
-        title: const Text(
-          'dummy',
-          style: TextStyle(
+        title: Text(
+          name,
+          style: const TextStyle(
             fontSize: 20,
           ),
         ),
         subtitle: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text('簡単な説明簡単な説明簡単な説明簡単な説明'),
+            Text(description),
             Row(
               children: [
                 const Icon(
                   Icons.star,
-                  color: Colors.grey,
+                  color: Colors.yellow,
                 ),
-                Text(goodNum.toString()),
+                Text(stargazersCount.toString()),
               ],
             )
           ],
