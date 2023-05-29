@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'search_result_list_tile.dart';
 import 'appbar_text_field.dart';
+import 'package:dio/dio.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'repository_api_client.dart';
+
+
 
 void main() {
   runApp(const MyApp());
@@ -68,6 +73,14 @@ class _MyHomePageState extends State<MyHomePage> {
               height: 0.5,
             );
           },
-        ));
+        ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          RepositoryApiClient api = RepositoryApiClient();
+          dynamic list = api.fetchList();
+        },
+        child: Icon(Icons.search),
+      ),
+    );
   }
 }
