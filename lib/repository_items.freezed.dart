@@ -22,7 +22,7 @@ RepositoryItems _$RepositoryItemsFromJson(Map<String, dynamic> json) {
 mixin _$RepositoryItems {
   String? get name => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
-  int? get stargazers_count => throw _privateConstructorUsedError;
+  int? get stargazersCount => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -36,7 +36,7 @@ abstract class $RepositoryItemsCopyWith<$Res> {
           RepositoryItems value, $Res Function(RepositoryItems) then) =
       _$RepositoryItemsCopyWithImpl<$Res, RepositoryItems>;
   @useResult
-  $Res call({String? name, String? description, int? stargazers_count});
+  $Res call({String? name, String? description, int? stargazersCount});
 }
 
 /// @nodoc
@@ -54,7 +54,7 @@ class _$RepositoryItemsCopyWithImpl<$Res, $Val extends RepositoryItems>
   $Res call({
     Object? name = freezed,
     Object? description = freezed,
-    Object? stargazers_count = freezed,
+    Object? stargazersCount = freezed,
   }) {
     return _then(_value.copyWith(
       name: freezed == name
@@ -65,9 +65,9 @@ class _$RepositoryItemsCopyWithImpl<$Res, $Val extends RepositoryItems>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
-      stargazers_count: freezed == stargazers_count
-          ? _value.stargazers_count
-          : stargazers_count // ignore: cast_nullable_to_non_nullable
+      stargazersCount: freezed == stargazersCount
+          ? _value.stargazersCount
+          : stargazersCount // ignore: cast_nullable_to_non_nullable
               as int?,
     ) as $Val);
   }
@@ -81,7 +81,7 @@ abstract class _$$_RepositoryItemsCopyWith<$Res>
       __$$_RepositoryItemsCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? name, String? description, int? stargazers_count});
+  $Res call({String? name, String? description, int? stargazersCount});
 }
 
 /// @nodoc
@@ -97,7 +97,7 @@ class __$$_RepositoryItemsCopyWithImpl<$Res>
   $Res call({
     Object? name = freezed,
     Object? description = freezed,
-    Object? stargazers_count = freezed,
+    Object? stargazersCount = freezed,
   }) {
     return _then(_$_RepositoryItems(
       name: freezed == name
@@ -108,20 +108,19 @@ class __$$_RepositoryItemsCopyWithImpl<$Res>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
-      stargazers_count: freezed == stargazers_count
-          ? _value.stargazers_count
-          : stargazers_count // ignore: cast_nullable_to_non_nullable
+      stargazersCount: freezed == stargazersCount
+          ? _value.stargazersCount
+          : stargazersCount // ignore: cast_nullable_to_non_nullable
               as int?,
     ));
   }
 }
 
 /// @nodoc
-@JsonSerializable()
-class _$_RepositoryItems
-    with DiagnosticableTreeMixin
-    implements _RepositoryItems {
-  _$_RepositoryItems({this.name, this.description, this.stargazers_count});
+
+@JsonSerializable(fieldRename: FieldRename.snake)
+class _$_RepositoryItems implements _RepositoryItems {
+  _$_RepositoryItems({this.name, this.description, this.stargazersCount});
 
   factory _$_RepositoryItems.fromJson(Map<String, dynamic> json) =>
       _$$_RepositoryItemsFromJson(json);
@@ -131,21 +130,11 @@ class _$_RepositoryItems
   @override
   final String? description;
   @override
-  final int? stargazers_count;
+  final int? stargazersCount;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'RepositoryItems(name: $name, description: $description, stargazers_count: $stargazers_count)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'RepositoryItems'))
-      ..add(DiagnosticsProperty('name', name))
-      ..add(DiagnosticsProperty('description', description))
-      ..add(DiagnosticsProperty('stargazers_count', stargazers_count));
+  String toString() {
+    return 'RepositoryItems(name: $name, description: $description, stargazersCount: $stargazersCount)';
   }
 
   @override
@@ -156,14 +145,14 @@ class _$_RepositoryItems
             (identical(other.name, name) || other.name == name) &&
             (identical(other.description, description) ||
                 other.description == description) &&
-            (identical(other.stargazers_count, stargazers_count) ||
-                other.stargazers_count == stargazers_count));
+            (identical(other.stargazersCount, stargazersCount) ||
+                other.stargazersCount == stargazersCount));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, name, description, stargazers_count);
+      Object.hash(runtimeType, name, description, stargazersCount);
 
   @JsonKey(ignore: true)
   @override
@@ -183,7 +172,7 @@ abstract class _RepositoryItems implements RepositoryItems {
   factory _RepositoryItems(
       {final String? name,
       final String? description,
-      final int? stargazers_count}) = _$_RepositoryItems;
+      final int? stargazersCount}) = _$_RepositoryItems;
 
   factory _RepositoryItems.fromJson(Map<String, dynamic> json) =
       _$_RepositoryItems.fromJson;
@@ -193,7 +182,7 @@ abstract class _RepositoryItems implements RepositoryItems {
   @override
   String? get description;
   @override
-  int? get stargazers_count;
+  int? get stargazersCount;
   @override
   @JsonKey(ignore: true)
   _$$_RepositoryItemsCopyWith<_$_RepositoryItems> get copyWith =>

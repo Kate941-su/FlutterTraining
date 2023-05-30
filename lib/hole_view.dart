@@ -33,8 +33,7 @@ class HoleView extends ConsumerWidget {
         actions: [
           IconButton(
               onPressed: () {
-    //            textFieldState.getQuery();
-                ref.refresh(listProvider);
+                ref.invalidate(listProvider);
               },
               icon: const Icon(Icons.search))
         ],
@@ -48,7 +47,7 @@ class HoleView extends ConsumerWidget {
                 // null非許容型としてキャストする
                 final elements = data![index];
                 // Nullチェックを行う
-                stargazersCount = elements.stargazers_count ?? 0;
+                stargazersCount = elements.stargazersCount ?? 0;
                 name = elements.name ?? '(No Name)';
                 description = elements.description ?? '(No Description)';
                 return SearchResultListTile(
@@ -60,7 +59,7 @@ class HoleView extends ConsumerWidget {
               },
               separatorBuilder: (context, index) {
                 return const Divider(
-                  height: 0.5,
+                  height: .5,
                 );
               },
             );
