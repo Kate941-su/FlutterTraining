@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_training/provider.dart';
 import 'search_result_list_tile.dart';
-import 'appbar_text_field.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'repository_api_client.dart';
 import 'text_page_state_notifier_provider.dart';
 
 class HoleView extends ConsumerWidget {
@@ -20,7 +18,6 @@ class HoleView extends ConsumerWidget {
 
     // TextFieldの状態監視
     final textFieldState = ref.watch(textProvider.notifier);
-    final TextEditingController controller = TextEditingController();
 
     return Scaffold(
       appBar: AppBar(
@@ -29,21 +26,21 @@ class HoleView extends ConsumerWidget {
           icon: const Icon(Icons.arrow_back),
         ),
         title: TextField(
-          style: TextStyle(
+          style: const TextStyle(
             color: Colors.white,
           ),
           controller: textFieldState.controller,
         ),
         actions: [
           IconButton(
-            onPressed: (){
-              textFieldState.submit();
-            },
-            icon: Icon(Icons.search))],
-
+              onPressed: () {
+                textFieldState.submit();
+              },
+              icon: const Icon(Icons.search))
+        ],
       ),
       body: Center(
-        child: asyncValue.when (
+        child: asyncValue.when(
           data: (data) {
             return ListView.separated(
               itemCount: 100,
@@ -58,6 +55,7 @@ class HoleView extends ConsumerWidget {
                   stargazersCount: stargazersCount,
                   description: description,
                   name: name,
+                  index: index + 1,
                 );
               },
               separatorBuilder: (context, index) {
@@ -67,16 +65,9 @@ class HoleView extends ConsumerWidget {
               },
             );
           },
-          loading: () {
-            // fixme
-          },
+          loading: () => const CircularProgressIndicator(),
           error: (error, _) => Text(error.toString()),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-        },
-        child: const Icon(Icons.search),
       ),
     );
   }

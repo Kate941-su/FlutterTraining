@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_training/text_page_state.dart';
-import 'repository_api_client.dart';
+// import 'repository_api_client.dart';
 
 final textProvider =
     StateNotifierProvider<TextPageStateNotifier, TextPageState>(
@@ -15,8 +15,9 @@ class TextPageStateNotifier extends StateNotifier<TextPageState> {
   final controller = TextEditingController();
 
   void submit() {
-    String query = 'https://api.github.com/search/repositories?q=${controller.text}&per_page=100';
-    RepositoryApiClient api = RepositoryApiClient();
-    dynamic list = api.fetchList(query);
+    // 検索&リストの更新を試みた時のメソッド
+    // String query = 'https://api.github.com/search/repositories?q=${controller.text}&per_page=100';
+    // RepositoryApiClient api = RepositoryApiClient();
+    // dynamic list = api.fetchList(query);
   }
 }

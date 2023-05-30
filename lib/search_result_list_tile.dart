@@ -5,12 +5,14 @@ class SearchResultListTile extends StatelessWidget {
   final int stargazersCount;
   final String name;
   final String description;
+  final int index; // debug
 
   const SearchResultListTile({
     Key? key,
     required this.stargazersCount,
     required this.name,
     required this.description,
+    required this.index,
   }) : super(key: key);
 
   @override
@@ -35,6 +37,10 @@ class SearchResultListTile extends StatelessWidget {
                   color: Colors.yellow,
                 ),
                 Text(stargazersCount.toString()),
+                const SizedBox(
+                  width: 16,
+                ),
+                Text('Index : $index'),
               ],
             )
           ],

@@ -324,4 +324,4 @@ lint/tmp/
 *.hprof
 
 /.metadata
-.fvm/flutter_sdk
+.fvm/flutter_sdk/

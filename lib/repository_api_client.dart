@@ -3,7 +3,6 @@ import 'package:dio/dio.dart';
 
 class RepositoryApiClient {
   Future<List<RepositoryItems>?> fetchList(String query) async {
-    print('hello');
     final dio = Dio();
     final response = await dio.get(query);
     if (response.statusCode == 200) {
@@ -14,10 +13,10 @@ class RepositoryApiClient {
         final list = data.map((e) => RepositoryItems.fromJson(e)).toList();
         return list;
       } catch (e) {
-        throw e;
+        return [];
       }
     } else {
-      print('bad request');
+      return [];
     }
   }
 }
