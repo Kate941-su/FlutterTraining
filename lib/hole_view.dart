@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_training/provider.dart';
 import 'search_result_list_tile.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'text_page_state_notifier_provider.dart';
 
 class HoleView extends ConsumerWidget {
   const HoleView({Key? key}) : super(key: key);
@@ -34,7 +33,8 @@ class HoleView extends ConsumerWidget {
         actions: [
           IconButton(
               onPressed: () {
-                textFieldState.submit();
+    //            textFieldState.getQuery();
+                ref.refresh(listProvider);
               },
               icon: const Icon(Icons.search))
         ],
@@ -65,7 +65,9 @@ class HoleView extends ConsumerWidget {
               },
             );
           },
-          loading: () => const CircularProgressIndicator(),
+          loading: () => const CircularProgressIndicator(
+            color: Colors.white,
+          ),
           error: (error, _) => Text(error.toString()),
         ),
       ),

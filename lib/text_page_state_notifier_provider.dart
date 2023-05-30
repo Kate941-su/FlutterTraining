@@ -14,10 +14,8 @@ class TextPageStateNotifier extends StateNotifier<TextPageState> {
 
   final controller = TextEditingController();
 
-  void submit() {
+  String getKeyword() {
     // 検索&リストの更新を試みた時のメソッド
-    // String query = 'https://api.github.com/search/repositories?q=${controller.text}&per_page=100';
-    // RepositoryApiClient api = RepositoryApiClient();
-    // dynamic list = api.fetchList(query);
+     return controller.text;
   }
 }
