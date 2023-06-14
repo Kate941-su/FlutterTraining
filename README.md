@@ -10,3 +10,8 @@ Githubリポジトリの一覧を表示するアプリを作っていただき�
 2. [Layout](https://github.com/HiroyukiTamura/FlutterTraining/blob/master/docs/sessions/layout.md)
 3. [Api](https://github.com/HiroyukiTamura/FlutterTraining/blob/master/docs/sessions/api.md)
 
+# 改良
+6/14　追記
+hooks + riverpod + freezedを用いて改良しました。
+今後のアプリ開発のボイラープレート的な役割になれば良いと思います。
+
