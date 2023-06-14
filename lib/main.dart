@@ -14,7 +14,7 @@ class MyApp extends ConsumerWidget {
     return MaterialApp(
       title: 'Github Repository List',
       theme: ThemeData.dark(),
-      home: const MainPage(),
+      home: MainPage(),
     );
   }
 }

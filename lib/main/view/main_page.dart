@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_training/main/view/appbar_text_field_page.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
+import '../view_model/appbar_text_provider.dart';
 import 'package:flutter_training/main/view_model/repository_api_view_model.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'search_result_content.dart';
-import '../view_model/appbar_text_provider.dart';
 
 class MainPage extends HookConsumerWidget {
-  const MainPage({Key? key}) : super(key: key);
-
+  MainPage({Key? key}) : super(key: key);
+  final controller = useTextEditingController();
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     // WidgetRef
     // 取得したAPIデータの監視
     final asyncValue = ref.watch(listProvider);
-    final text = ref.watch(appBarTextProvider);
-    final controller = useTextEditingController();
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -31,7 +30,6 @@ class MainPage extends HookConsumerWidget {
         actions: [
           IconButton(
               onPressed: () {
-                String dummy = controller.text;
                 ref.read(appBarTextProvider.notifier).setText(controller.text);
               },
               icon: const Icon(Icons.search))
