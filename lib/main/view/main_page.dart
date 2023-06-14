@@ -1,39 +1,38 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_training/provider.dart';
-import 'search_result_list_tile.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_training/main/view_model/repository_api_view_model.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
+import 'search_result_content.dart';
+import '../view_model/appbar_text_provider.dart';
 
-class HoleView extends ConsumerWidget {
-  const HoleView({Key? key}) : super(key: key);
+class MainPage extends HookConsumerWidget {
+  const MainPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    int stargazersCount = 0;
-    String description = '';
-    String name = '';
     // WidgetRef
     // 取得したAPIデータの監視
     final asyncValue = ref.watch(listProvider);
-
-    // TextFieldの状態監視
-    final textFieldState = ref.watch(textProvider.notifier);
-
+    final text = ref.watch(appBarTextProvider);
+    final controller = useTextEditingController();
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () {
+          },
           icon: const Icon(Icons.arrow_back),
         ),
         title: TextField(
           style: const TextStyle(
             color: Colors.white,
           ),
-          controller: textFieldState.controller,
+          controller: controller,
         ),
         actions: [
           IconButton(
               onPressed: () {
-                ref.invalidate(listProvider);
+                String dummy = controller.text;
+                ref.read(appBarTextProvider.notifier).setText(controller.text);
               },
               icon: const Icon(Icons.search))
         ],
@@ -47,13 +46,10 @@ class HoleView extends ConsumerWidget {
                 // null非許容型としてキャストする
                 final elements = data![index];
                 // Nullチェックを行う
-                stargazersCount = elements.stargazersCount ?? 0;
-                name = elements.name ?? '(No Name)';
-                description = elements.description ?? '(No Description)';
                 return SearchResultListTile(
-                  stargazersCount: stargazersCount,
-                  description: description,
-                  name: name,
+                  stargazersCount: elements.stargazersCount ?? 0,
+                  description: elements.description ?? '',
+                  name: elements.name ?? '',
                   index: index + 1,
                 );
               },

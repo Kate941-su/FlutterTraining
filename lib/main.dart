@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'hole_view.dart';
+import 'main/view/main_page.dart';
 
 void main() {
   runApp(const ProviderScope(child: MyApp()));
@@ -14,7 +14,7 @@ class MyApp extends ConsumerWidget {
     return MaterialApp(
       title: 'Github Repository List',
       theme: ThemeData.dark(),
-      home: const HoleView(),
+      home: const MainPage(),
     );
   }
 }

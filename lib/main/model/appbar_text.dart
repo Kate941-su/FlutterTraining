@@ -1,11 +1,11 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter/foundation.dart';
 
-part 'text_page_state.freezed.dart';
+part 'appbar_text.freezed.dart';
 
 @freezed
-class TextPageState with _$TextPageState {
-  const factory TextPageState({
+class AppbarText with _$AppbarText {
+  const factory AppbarText({
     @Default("") String text,
-}) = _TextPageState;
+}) = _AppbarText;
 }
